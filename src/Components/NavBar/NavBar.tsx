@@ -1,5 +1,6 @@
 import { Box, Flex, Text, HStack, Button } from "@chakra-ui/react"
-import { paddingX } from "../../styles/styles"
+import { width } from "../../styles/styles"
+import WrapperComponent from "../HOC/Hoc";
 
 
 interface TitleItemData {
@@ -8,7 +9,7 @@ interface TitleItemData {
     url: string;
 }
 
-const TitleItemData: TitleItemData[] = [
+const TitleItemData = [
     {
         id: 1,
         TitleName: "Wallet",
@@ -35,12 +36,11 @@ const NavBar = () => {
     return (
         <>
             <Flex
-
-                bg="color.primary"
-                paddingX={paddingX}
                 paddingY={5}
                 justifyContent="space-between"
+                width={width}
             >
+
                 <HStack spacing={10}>
                     <Box
                         width="80px"
@@ -54,7 +54,8 @@ const NavBar = () => {
                         justifySelf="flex-start"
                     >
                         {TitleItemData.map(({ id, TitleName }) => (
-                            <Text key={id} fontFamily="subtitle" color="blackAlpha.700" >{TitleName}</Text>
+                            <Text fontSize="md"
+                                key={id} fontFamily="subtitle" color="blackAlpha.700" >{TitleName}</Text>
 
                         ))}
 
@@ -74,10 +75,6 @@ const NavBar = () => {
                         bg="transparent"
                         _hover={{
                             bg: "transparent",
-                            // borderColor : "color.secondary",
-                            // borderWidth: "1px",
-                            // borderRadius: "full",
-                            // borderStyle:"solid"
                         }}
                     >
                         Log in
@@ -107,4 +104,4 @@ const NavBar = () => {
     )
 }
 
-export default NavBar
+export default WrapperComponent(NavBar);

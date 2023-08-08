@@ -4,3 +4,8 @@ export const paddingX = {
     xl: "140px"
 
 }
+
+
+export const width = {
+    base:"100%",md:"1400px"
+}
